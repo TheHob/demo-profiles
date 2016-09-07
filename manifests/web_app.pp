@@ -36,13 +36,14 @@ class profiles::web_app {
 
   # Ensure content
   vcsrepo { $www_root_var:
-    ensure   => latest,
-    owner    => root,
-    group    => root,
-    provider => git,
-    require  => [ Package['git'], File[$www_root_var]],
-    source   => 'https://10.32.174.235/root/my-app-repo.git',
-    revision => '1.0',
+    ensure            => latest,
+    owner             => root,
+    group             => root,
+    provider          => git,
+    require           => [ Package['git'], File[$www_root_var]],
+    source            => 'https://10.32.174.235/root/my-app-repo.git',
+    trust_server_cert => true,
+    revision          => 'master',
   }
 
   # Allow traffic on port 8000

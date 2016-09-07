@@ -41,7 +41,7 @@ class profiles::web_app {
     group             => root,
     provider          => git,
     source            => 'git@10.32.174.235:root/my-app-repo.git',
-    revision          => 'production'
+    revision          => 'production',
     user              => 'root',
     require           => [ Package['git'], File[$www_root_var]],
   }

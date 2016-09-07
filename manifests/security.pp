@@ -1,6 +1,5 @@
 class profiles::security {
 
-
   service { 'iptables':
     ensure => stopped,
     enable => false,

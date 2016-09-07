@@ -28,8 +28,10 @@ class profiles::web_app {
   }
 
   # Ensure git for vcsrepo
-  package { 'git':
-    ensure  => installed,
+  if ! defined ('git') {
+      package { 'git':
+          ensure => installed,
+      }
   }
 
   # Ensure content

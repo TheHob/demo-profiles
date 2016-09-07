@@ -41,8 +41,8 @@ class profiles::web_app {
     group             => root,
     provider          => git,
     require           => [ Package['git'], File[$www_root_var]],
-    source            => 'https://10.32.174.235/root/my-app-repo.git',
-    trust_server_cert => true,
+    source            => 'git://git@10.32.174.235/root/my-app-repo.git',
+    user              => 'root',
     revision          => 'master',
   }
 

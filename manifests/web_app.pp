@@ -40,10 +40,9 @@ class profiles::web_app {
     owner             => root,
     group             => root,
     provider          => git,
-    require           => [ Package['git'], File[$www_root_var]],
-    source            => 'git://git@10.32.174.235/root/my-app-repo.git',
-    user              => 'root',
+    source            => 'https://10.32.174.235/root/my-app-repo.git',
     revision          => 'master',
+    require           => [ Package['git'], File[$www_root_var]],
   }
 
   # Allow traffic on port 8000
